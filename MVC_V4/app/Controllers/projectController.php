@@ -7,7 +7,7 @@ class projectController {
 
 
     /**
-     * Function created by Alexandru for #4
+     * Function created by Alexandru for Rule #3
      * Checks if an inserted value is an actual float and above 0
      * 1000.35 -> true
      * 0 -> true
