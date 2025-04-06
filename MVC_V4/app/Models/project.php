@@ -6,10 +6,15 @@ class Project {
     private String $name;
     private float $budget;
 
-    public function __construct($projectID, $name, $budget) {
+    public function __construct(int $projectID, String $name, float $budget) {
         $this->projectID = $projectID;
         $this->name = $name;
-        $this->budget = $budget;
+        if ($budget >= 0) {
+            $this->budget = $budget;
+        } else {
+            throw new \InvalidArgumentException("Project budget cannot be negative input: $budget");
+        }
+
     }
 
     public function getProjectID(): int
@@ -42,7 +47,22 @@ class Project {
         $this->budget = $budget;
     }
 
-
+    /**
+     * Function created by Alexandru for Rule #3
+     * Checks if an inserted value is an actual float and above 0
+     * 1000.35 -> true
+     * 0 -> true
+     * "a0a" - false
+     * -10 -> false
+     * @param float $insertedBudget accepts any value
+     * @return bool return false by default
+     */
+    private static function validateBudget(float $insertedBudget): bool {
+        if ($insertedBudget >= 0) {
+            return true;
+        }
+        return false;
+    }
 }
 
 
