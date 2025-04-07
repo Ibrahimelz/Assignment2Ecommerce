@@ -1,4 +1,7 @@
 <?php
+// Enforce type checking
+declare(strict_types=1);
+
 namespace Models;
 
 class Project {
@@ -45,6 +48,20 @@ class Project {
     public function setBudget(float $budget): void
     {
         $this->budget = $budget;
+    }
+
+    /**
+     * Validate the format of a name for a project.
+     * 
+     * @param String $name the name to validate.
+     * @return bool a boolean indicating whether the name has the valid format
+     * for a project name.
+     * @author Danat
+     */
+    public static function validateProjectName(String $name): bool {
+        // Accept from 1 to 50 letters or digits only.
+        $pattern = "/^[a-zA-Z\d]{1,50}$/";
+        return preg_match($pattern, $name) == 1 ? true : false;
     }
 
     /**
