@@ -1,6 +1,4 @@
 <?php
-// Enforce type checking
-declare(strict_types=1);
 
 namespace Models;
 
@@ -59,8 +57,8 @@ class Project {
      * @author Danat
      */
     public static function validateProjectName(String $name): bool {
-        // Accept from 1 to 50 letters or digits only.
-        $pattern = "/^[a-zA-Z\d]{1,50}$/";
+        // Accept from 1 to 50 letters, digits, or spaces only.
+        $pattern = "/^[a-zA-Z\d ]{1,50}$/";
         return preg_match($pattern, $name) == 1 ? true : false;
     }
 
