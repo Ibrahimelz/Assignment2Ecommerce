@@ -2,12 +2,18 @@
 
 namespace Models;
 
+use core\utils\Utils;
+
 class Project {
     private int $projectID;
     private String $name;
     private float $budget;
 
     public function __construct(int $projectID, String $name, float $budget) {
+        $name = Utils::validateInput($name);
+        if (!Project::validateProjectName($name)) {
+            throw new \InvalidArgumentException("The project name is invalid.");
+        }
         $this->projectID = $projectID;
         $this->name = $name;
         if ($budget >= 0) {
