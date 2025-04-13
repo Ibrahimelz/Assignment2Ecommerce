@@ -2,10 +2,6 @@
 
 namespace views;
 
-/* The view can be written as HTML + PHP
-OR we can use OOP and make it a class. 
-*/
-
 class EmployeeList{
 
     public function render($data){
@@ -35,8 +31,18 @@ class EmployeeList{
       
         echo $html;  
 
+        echo '<h2>Create an Employee</h2>
+        <form action="" method="POST">
+            <label for="firstName">First Name:</label><br>
+            <input type="text" name="firstName" required><br>
+            <label for="departmentID">Department ID:</label><br>
+            <input type="text" name="departmentID" required><br>
+            <label for="title">Title:</label><br>
+            <input type="text" name="title" required><br><br>
+            <input type="submit" value="Create Employee">
+        </form>';
+
         require("Resources\\Views\\templates\\footer.php");
 
-       // return $html;
     }
 }

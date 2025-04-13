@@ -59,6 +59,11 @@ class RequestBuilder{
     
     }
 
+}
 
+$url = isset($_GET['url']) ? $_GET['url'] : '';
+$urlParams = explode('/', $url);
 
+if (count($urlParams) < 2) {
+    $urlParams[1] = '';
 }

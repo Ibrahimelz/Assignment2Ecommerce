@@ -10,8 +10,6 @@ class EmployeeCreate{
         require("Resources\\Views\\templates\\header.php");
 
         $html = "<h2>Create and Employee</h2>";
-
-     
     
         require("Resources\\Views\\templates\\footer.php");
     }    

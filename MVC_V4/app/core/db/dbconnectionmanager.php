@@ -5,7 +5,7 @@ namespace database;
 class DBConnectionManager{
 
     private $username;
-    private $password; // password to be stored and read through an environment variable
+    private $password;
     private $server; 
     private $dbname;
 
@@ -27,7 +27,6 @@ class DBConnectionManager{
         }
     }
 
-    // could be a static function
     function getConnection(){
 
         return $this->dbConnection;
